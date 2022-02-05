@@ -1,6 +1,6 @@
 import Navbar from './layout/Navbar';
+import { GithubProvider } from './context/GithubContext';
 import Main from './layout/Main';
-import { GithubProvider } from './context/GithubProvider';
 
 function App() {
 	return (
