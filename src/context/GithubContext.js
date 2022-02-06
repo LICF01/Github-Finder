@@ -6,6 +6,7 @@ const GithubContext = createContext();
 export function GithubProvider({ children }) {
 	const initialState = {
 		user: {},
+		users: [],
 		loading: true,
 	};
 

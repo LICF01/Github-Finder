@@ -4,6 +4,8 @@ export default function GithubReducer(state, action) {
 			return { ...state, loading: true };
 		case 'GET_USER':
 			return { ...state, user: action.payload.user, loading: false };
+		case 'GET_USERS':
+			return { ...state, users: action.payload, loading: false };
 		default: {
 			throw new Error(`Unhandled action type: ${action.type}`);
 		}
