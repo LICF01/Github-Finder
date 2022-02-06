@@ -11,9 +11,9 @@ import {
 
 import { FaBuilding, FaMapMarker, FaLink, FaUserFriends } from 'react-icons/fa';
 
-import GithubContext from '../context/GithubContext';
+import GithubContext from '../../context/GithubContext';
 
-import { getUserData } from '../context/GithubActions';
+import { getUserData } from '../../context/GithubActions';
 
 const User = () => {
 	const { user, loading, dispatch } = useContext(GithubContext);
