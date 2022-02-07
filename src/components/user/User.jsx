@@ -21,13 +21,12 @@ const User = () => {
 		dispatch({ type: 'SET_LOADING' });
 		const getUser = async () => {
 			const userData = await getUserData(params.login);
+			console.log(userData);
 			dispatch({ type: 'GET_USER', payload: userData });
 		};
 
 		getUser();
 	}, [dispatch, params.login]);
-
-	console.log(user);
 
 	const {
 		name,

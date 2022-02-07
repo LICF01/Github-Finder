@@ -9,14 +9,16 @@ const github = axios.create({
 });
 
 export const getUserData = async (login) => {
-	const user = await github.get(`/users/${login}`);
+	const [user, repos] = await Promise.all([
+		github.get(`/users/${login}`),
+		github.get(`/users/${login}/repos`),
+	]);
 
-	return { user: user.data };
+	return { user: user.data, repos: repos.data };
 };
 
-export const searchUsers = async (user) => {
-
-	const users = await github.get(`/search/users?q=${user}`);
+export const searchUsers = async (login) => {
+	const users = await github.get(`/search/users?q=${login}`);
 
 	return users.data.items;
 };
