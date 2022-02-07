@@ -8,25 +8,24 @@ import {
 	Button,
 	HStack,
 } from '@chakra-ui/react';
-
+import { useParams } from 'react-router-dom';
 import { FaBuilding, FaMapMarker, FaLink, FaUserFriends } from 'react-icons/fa';
-
 import GithubContext from '../../context/GithubContext';
-
 import { getUserData } from '../../context/GithubActions';
 
 const User = () => {
 	const { user, loading, dispatch } = useContext(GithubContext);
+	let params = useParams();
 
 	useEffect(() => {
 		dispatch({ type: 'SET_LOADING' });
 		const getUser = async () => {
-			const userData = await getUserData('');
+			const userData = await getUserData(params.login);
 			dispatch({ type: 'GET_USER', payload: userData });
 		};
 
 		getUser();
-	}, [dispatch]);
+	}, [dispatch, params.login]);
 
 	console.log(user);
 

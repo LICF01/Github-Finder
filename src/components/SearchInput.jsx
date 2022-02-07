@@ -1,5 +1,7 @@
 import { useContext, useReducer, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import { searchUsers } from '../context/GithubActions';
 
 import GithubContext from '../context/GithubContext';
@@ -16,8 +18,8 @@ import { FiSearch } from 'react-icons/fi';
 
 const SearchInput = () => {
 	const [inputText, setInputText] = useState('');
-
 	const { users, dispatch } = useContext(GithubContext);
+	let navigate = useNavigate();
 
 	const handleChange = (e) => {
 		setInputText(e.target.value);
@@ -30,12 +32,14 @@ const SearchInput = () => {
 
 		dispatch({ type: 'GET_USERS', payload: users });
 
+		navigate(`/user/search`);
+
 		setInputText('');
 	};
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<FormControl w={{ sm: '70vw', md: '30vw' }} my={{base: '20px'}}>
+			<FormControl w={{ sm: '70vw', md: '30vw' }} my={{ base: '20px' }}>
 				<InputGroup>
 					<InputLeftElement
 						pointerEvents='none'
