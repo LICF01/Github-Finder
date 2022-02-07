@@ -6,8 +6,10 @@ import SearchInput from '../components/SearchInput';
 const Navbar = () => {
 	return (
 		<Flex
-			flexDirection='row'
-			w='full'
+			flexDirection={{
+				base: 'column',
+				md: 'row'
+			}}
 			justify='space-between'
 			align='center'
 			py='5'

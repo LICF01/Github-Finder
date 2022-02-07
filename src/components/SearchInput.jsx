@@ -30,12 +30,12 @@ const SearchInput = () => {
 
 		dispatch({ type: 'GET_USERS', payload: users });
 
-		setInputText('')
+		setInputText('');
 	};
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<FormControl w='sm'>
+			<FormControl w={{ sm: '70vw', md: '30vw' }} my={{base: '20px'}}>
 				<InputGroup>
 					<InputLeftElement
 						pointerEvents='none'

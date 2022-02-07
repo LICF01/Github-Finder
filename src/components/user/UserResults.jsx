@@ -8,11 +8,11 @@ const UserResults = () => {
 
 	if (!loading) {
 		return (
-			<Grid gridTemplateColumns='repeat(4, 1fr)' px={10}>
+			<Grid gridTemplateColumns='repeat(auto-fill, 350px)' justifyContent='center'>
 				{users.map((user) => {
 					return (
-						<GridItem>
-							<UserItem key={user.id} user={user} />;
+						<GridItem maxW={'400px'}>
+							<UserItem key={user.id} user={user} />
 						</GridItem>
 					);
 				})}
