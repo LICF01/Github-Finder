@@ -3,7 +3,12 @@ export default function GithubReducer(state, action) {
 		case 'SET_LOADING':
 			return { ...state, loading: true };
 		case 'GET_USER':
-			return { ...state, user: action.payload.user, repos: action.payload.repos, loading: false };
+			return {
+				...state,
+				user: action.payload.user,
+				repos: action.payload.repos,
+				loading: false,
+			};
 		case 'GET_USERS':
 			return { ...state, users: action.payload, loading: false };
 		default: {

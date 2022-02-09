@@ -22,3 +22,5 @@ export const searchUsers = async (login) => {
 
 	return users.data.items;
 };
+
+

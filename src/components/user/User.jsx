@@ -7,14 +7,19 @@ import {
 	Text,
 	Button,
 	HStack,
+	Box,
+	Grid,
+	GridItem,
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { FaBuilding, FaMapMarker, FaLink, FaUserFriends } from 'react-icons/fa';
 import GithubContext from '../../context/GithubContext';
-import { getUserData } from '../../context/GithubActions';
+import { getUserData, getLanguageColors } from '../../context/GithubActions';
+
+import RepoItem from './RepoItem';
 
 const User = () => {
-	const { user, loading, dispatch } = useContext(GithubContext);
+	const { user, repos, loading, dispatch } = useContext(GithubContext);
 	let params = useParams();
 
 	useEffect(() => {
@@ -50,7 +55,7 @@ const User = () => {
 					<Heading>{name}</Heading>
 					<Heading size='lg' color='gray.400'>{`@${login}`}</Heading>
 				</VStack>
-				<Text color='gray.500' fontWeigh='medium'>
+				<Text color='gray.500' fontWeight='medium'>
 					{bio}
 				</Text>
 				<Button bgColor='black' color='white' w='full' h='70px'>
@@ -77,6 +82,18 @@ const User = () => {
 					</HStack>
 				</VStack>
 			</VStack>
+			<Box pl={20}>
+				<Heading>Projects</Heading>
+				<Grid gridTemplateColumns='repeat(2, 1fr)' gap={10} my={10}>
+					{repos.map((repo) => {
+						return (
+							<GridItem>
+								<RepoItem key={repo.id} repo={repo} />
+							</GridItem>
+						);
+					})}
+				</Grid>
+			</Box>
 		</Flex>
 	);
 };
