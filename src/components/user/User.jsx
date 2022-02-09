@@ -50,20 +50,24 @@ const User = () => {
 	return (
 		<Flex px='10' pt={20} bgColor='#f8f8f8'>
 			<VStack align='start' w='30vw' spacing='8'>
-				<Image src={avatar_url} alt='Dan Abramov' boxSize='250px' />
-				<VStack align='start'>
+				<Image src={avatar_url} alt='Dan Abramov' boxSize='200px' borderRadius='md' />
+				<VStack align='start' spacing='-1'>
 					<Text fontWeight='900' fontSize='4xl'>
 						{name}
 					</Text>
-					<Heading size='lg' color='gray.400'>{`@${login}`}</Heading>
+					<Heading
+						size='lg'
+						color='gray.400'
+						fontWeight='500'
+					>{`@${login}`}</Heading>
 				</VStack>
-				<Text color='gray.500' fontWeight='medium'>
+				<Text color='gray.600' fontWeight='medium'>
 					{bio}
 				</Text>
 				<Button bgColor='black' color='white' w='full' h='70px'>
 					Visit Profile
 				</Button>
-				<VStack color='gray.500' align='start'>
+				<VStack color='gray.400' align='start'>
 					<HStack>
 						<FaUserFriends />
 						<Text>
