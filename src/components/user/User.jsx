@@ -50,7 +50,12 @@ const User = () => {
 	return (
 		<Flex px='10' pt={20} bgColor='#f8f8f8'>
 			<VStack align='start' w='30vw' spacing='8'>
-				<Image src={avatar_url} alt='Dan Abramov' boxSize='200px' borderRadius='md' />
+				<Image
+					src={avatar_url}
+					alt='Dan Abramov'
+					boxSize='200px'
+					borderRadius='md'
+				/>
 				<VStack align='start' spacing='-1'>
 					<Text fontWeight='900' fontSize='4xl'>
 						{name}

@@ -1,10 +1,5 @@
-import { useEffect, useContext } from 'react';
 import {
-	VStack,
-	Image,
-	Button,
 	HStack,
-	Box,
 	Badge,
 	Flex,
 	Spacer,
@@ -16,16 +11,25 @@ import {
 import { FiStar, FiClock } from 'react-icons/fi';
 import { BiGitRepoForked } from 'react-icons/bi';
 
+import languageColors from 'language-colors';
+
 const RepoItem = ({ repo }) => {
 	const {
 		name,
 		description,
 		priv,
-		language,
 		stargazers_count,
 		forks_count,
 		created_at,
 	} = repo;
+
+	let language = '';
+	let langColor = '';
+	if (repo.language) {
+		language = repo.language.toLowerCase();
+		langColor = `rgba(${languageColors[language].color.join(',')}, 1)`;
+		console.log(langColor);
+	}
 
 	const date = new Date(created_at).toLocaleString('default', {
 		month: 'short',
@@ -34,10 +38,13 @@ const RepoItem = ({ repo }) => {
 	});
 
 	return (
-		<Box
+		<Flex
+			flexDir='column'
+			justifyContent='space-between'
 			bgColor='white'
 			borderRadius='lg'
 			overflow='hidden'
+			h='100%'
 			p='6'
 			transition='all .2s'
 			_hover={{
@@ -46,10 +53,13 @@ const RepoItem = ({ repo }) => {
 			}}
 			sx={{ cursor: 'pointer' }}
 		>
-			<Flex justifyContent='end' alignItems='center' color='gray.400' mb='4'>
-				<Text borderRadius='full' >
-					{priv ? 'Private' : 'Public'}
-				</Text>
+			<Flex
+				justifyContent='end'
+				alignItems='center'
+				color='gray.400'
+				mb='4'
+			>
+				<Text borderRadius='full'>{priv ? 'Private' : 'Public'}</Text>
 				<Spacer />
 				<HStack>
 					<Icon as={FiClock} />
@@ -62,26 +72,35 @@ const RepoItem = ({ repo }) => {
 			<Text color='gray.500' mt={3}>
 				{description}
 			</Text>
-			<HStack mt={5}>
+			<Flex mt={5}>
+				<HStack>
+					<Flex alignItems='center'>
+						<Icon as={FiStar} color='gray.500' />
+						<Text mx='1' color='gray.500'>
+							{stargazers_count}
+						</Text>
+					</Flex>
+					<Flex alignItems='center'>
+						<Icon as={BiGitRepoForked} color='gray.500' />
+						<Text mx='1' color='gray.500'>
+							{forks_count}
+						</Text>
+					</Flex>
+				</HStack>
+				<Spacer />
 				{language && (
-					<Badge borderRadius='full' px='4' py='1' color='gray.500'>
+					<Badge
+						borderRadius='full'
+						px='4'
+						py='1'
+						color='white'
+						bgColor={langColor}
+					>
 						{language}
 					</Badge>
 				)}
-				<Flex alignItems='center'>
-					<Icon as={FiStar} color='gray.500' />
-					<Text mx='1' color='gray.500'>
-						{stargazers_count}
-					</Text>
-				</Flex>
-				<Flex alignItems='center'>
-					<Icon as={BiGitRepoForked} color='gray.500' />
-					<Text mx='1' color='gray.500'>
-						{forks_count}
-					</Text>
-				</Flex>
-			</HStack>
-		</Box>
+			</Flex>
+		</Flex>
 	);
 };
 
