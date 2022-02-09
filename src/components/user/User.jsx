@@ -48,52 +48,63 @@ const User = () => {
 	if (loading) return <p>Loading...</p>;
 
 	return (
-		<Flex px='10' pt={20} bgColor='#f8f8f8'>
-			<VStack align='start' w='30vw' spacing='8'>
-				<Image
-					src={avatar_url}
-					alt='Dan Abramov'
-					boxSize='200px'
-					borderRadius='md'
-				/>
-				<VStack align='start' spacing='-1'>
-					<Text fontWeight='900' fontSize='4xl'>
-						{name}
-					</Text>
-					<Heading
-						size='lg'
-						color='gray.400'
-						fontWeight='500'
-					>{`@${login}`}</Heading>
-				</VStack>
-				<Text color='gray.600' fontWeight='medium'>
-					{bio}
-				</Text>
-				<Button bgColor='black' color='white' w='full' h='70px'>
-					Visit Profile
-				</Button>
-				<VStack color='gray.400' align='start'>
-					<HStack>
-						<FaUserFriends />
-						<Text>
-							Followers: {followers} / Following: {following}
+		<Grid
+			templateColumns='1fr 3.4fr'
+			alignItems='start'
+			px={10}
+			pt={20}
+			bgColor='#f8f8f8'
+			h='100%'
+		>
+			{/* <Flex px='10' pt={20} bgColor='#f8f8f8' h='100vh'> */}
+			<GridItem>
+				<VStack align='start' maxW='18vw' spacing='8'>
+					<Image
+						src={avatar_url}
+						alt='Dan Abramov'
+						boxSize='200px'
+						borderRadius='md'
+					/>
+					<VStack align='start' spacing='-1'>
+						<Text fontWeight='900' fontSize='4xl'>
+							{name}
 						</Text>
-					</HStack>
-					<HStack>
-						<FaBuilding />
-						<Text>{company}</Text>
-					</HStack>
-					<HStack>
-						<FaMapMarker />
-						<Text>{location}</Text>
-					</HStack>
-					<HStack>
-						<FaLink />
-						<Text>{blog}</Text>
-					</HStack>
+						<Heading
+							size='lg'
+							color='gray.400'
+							fontWeight='500'
+						>{`@${login}`}</Heading>
+					</VStack>
+					<Text color='gray.600' fontWeight='medium'>
+						{bio}
+					</Text>
+					<Button bgColor='black' color='white' w='full' h='70px'>
+						Visit Profile
+					</Button>
+					<VStack color='gray.400' align='start'>
+						<HStack>
+							<FaUserFriends />
+							<Text>
+								Followers: {followers} / Following: {following}
+							</Text>
+						</HStack>
+						<HStack>
+							<FaBuilding />
+							<Text>{company}</Text>
+						</HStack>
+						<HStack>
+							<FaMapMarker />
+							<Text>{location}</Text>
+						</HStack>
+						<HStack>
+							<FaLink />
+							<Text>{blog}</Text>
+						</HStack>
+					</VStack>
 				</VStack>
-			</VStack>
-			<Box pl={20}>
+			</GridItem>
+			<GridItem>
+				{/* <Box pl={20}> */}
 				<Heading>Projects</Heading>
 				<Grid gridTemplateColumns='repeat(2, 1fr)' gap={10} my={10}>
 					{repos.map((repo) => {
@@ -104,8 +115,10 @@ const User = () => {
 						);
 					})}
 				</Grid>
-			</Box>
-		</Flex>
+				{/* </Box> */}
+			</GridItem>
+			{/* </Flex> */}
+		</Grid>
 	);
 };
 

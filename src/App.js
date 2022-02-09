@@ -10,7 +10,7 @@ import User from './components/user/User';
 function App() {
 	return (
 		<GithubProvider>
-			<Box className='App'>
+			<Box className='App' h='100%'>
 				<Navbar />
 				<Routes>
 					<Route path='/user/:login' element={<User />} />
