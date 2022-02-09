@@ -48,11 +48,13 @@ const User = () => {
 	if (loading) return <p>Loading...</p>;
 
 	return (
-		<Flex px='10'>
-			<VStack align='start' w='20vw' spacing='8'>
+		<Flex px='10' bgColor='#f8f8f8'>
+			<VStack align='start' w='30vw' spacing='8'>
 				<Image src={avatar_url} alt='Dan Abramov' boxSize='250px' />
 				<VStack align='start'>
-					<Heading>{name}</Heading>
+					<Text fontWeight='900' fontSize='4xl'>
+						{name}
+					</Text>
 					<Heading size='lg' color='gray.400'>{`@${login}`}</Heading>
 				</VStack>
 				<Text color='gray.500' fontWeight='medium'>
