@@ -48,7 +48,7 @@ const User = () => {
 	if (loading) return <p>Loading...</p>;
 
 	return (
-		<Flex px='10' bgColor='#f8f8f8'>
+		<Flex px='10' pt={20} bgColor='#f8f8f8'>
 			<VStack align='start' w='30vw' spacing='8'>
 				<Image src={avatar_url} alt='Dan Abramov' boxSize='250px' />
 				<VStack align='start'>

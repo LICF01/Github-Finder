@@ -11,10 +11,11 @@ import {
 	Input,
 	InputGroup,
 	InputLeftElement,
-	Button,
+	Icon,
+	Flex,
 } from '@chakra-ui/react';
 
-import { FiSearch } from 'react-icons/fi';
+import { RiSearchLine } from 'react-icons/ri';
 
 const SearchInput = () => {
 	const [inputText, setInputText] = useState('');
@@ -39,19 +40,23 @@ const SearchInput = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<FormControl w={{ sm: '70vw', md: '30vw' }} my={{ base: '20px' }}>
-				<InputGroup>
+			<FormControl w={{ sm: '70vw', md: '100%' }} my={{ base: '20px' }}>
+				<InputGroup color='gray.400' size='lg'>
 					<InputLeftElement
 						pointerEvents='none'
-						children={<FiSearch color='gray.300' />}
+						children={<RiSearchLine size='22' />}
 					/>
-
 					<Input
-						placeholder='Search'
+						placeholder='Search...'
 						id='search'
 						type='text'
 						value={inputText}
 						onChange={handleChange}
+						variant='flushed'
+						focusBorderColor='gray.300'
+						border='none'
+						_placeholder={{ color: 'gray.600' }}
+						_focus={{ color: 'gray.900' }}
 					/>
 				</InputGroup>
 			</FormControl>

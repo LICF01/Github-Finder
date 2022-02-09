@@ -1,26 +1,21 @@
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex, Box, Icon, Grid, GridItem } from '@chakra-ui/react';
 
 import Logo from '../components/Logo';
 import SearchInput from '../components/SearchInput';
 
 const Navbar = () => {
 	return (
-		<Flex
-			flexDirection={{
-				base: 'column',
-				md: 'row'
-			}}
-			justify='space-between'
-			align='center'
-			py='5'
-			px='10'
-		>
-			<Logo />
-			<SearchInput />
-			<Box>
+		<Grid templateColumns='1fr 2.5fr 1fr' alignItems='center' px={10}>
+			<GridItem>
+				<Icon as={Logo} />
+			</GridItem>
+			<GridItem>
+				<SearchInput />
+			</GridItem>
+			<GridItem justifySelf='end'>
 				<p>About</p>
-			</Box>
-		</Flex>
+			</GridItem>
+		</Grid>
 	);
 };
 
