@@ -5,7 +5,7 @@ import { GithubProvider } from './context/GithubContext';
 import { Box } from '@chakra-ui/react';
 
 import UserResults from './components/user/UserResults';
-import User from './components/user/User';
+import User from './pages/User';
 
 function App() {
 	return (

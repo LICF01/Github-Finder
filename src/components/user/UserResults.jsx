@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import GithubContext from '../../context/GithubContext';
-import UserItem from './UserItem';
+import UserItem from './UserCard';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 const UserResults = () => {
@@ -8,7 +8,10 @@ const UserResults = () => {
 
 	if (!loading) {
 		return (
-			<Grid gridTemplateColumns='repeat(auto-fill, 350px)' justifyContent='center'>
+			<Grid
+				gridTemplateColumns='repeat(auto-fill, 350px)'
+				justifyContent='center'
+			>
 				{users.map((user) => {
 					return (
 						<GridItem maxW={'400px'}>

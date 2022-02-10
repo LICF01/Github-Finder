@@ -13,10 +13,10 @@ import {
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { FaBuilding, FaMapMarker, FaLink, FaUserFriends } from 'react-icons/fa';
-import GithubContext from '../../context/GithubContext';
-import { getUserData, getLanguageColors } from '../../context/GithubActions';
+import GithubContext from '../context/GithubContext';
+import { getUserData } from '../context/GithubActions';
 
-import RepoItem from './RepoItem';
+import RepoItem from '../components/user/RepoCard';
 
 const User = () => {
 	const { user, repos, loading, dispatch } = useContext(GithubContext);
