@@ -1,21 +1,14 @@
 import { useEffect, useContext } from 'react';
 import {
-	Flex,
-	VStack,
-	Image,
 	Heading,
-	Text,
-	Button,
-	HStack,
-	Box,
 	Grid,
 	GridItem,
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import { FaBuilding, FaMapMarker, FaLink, FaUserFriends } from 'react-icons/fa';
 import GithubContext from '../context/GithubContext';
 import { getUserData } from '../context/GithubActions';
 
+import UserInfo from '../components/user/UserInfo'
 import RepoItem from '../components/user/RepoCard';
 
 const User = () => {
@@ -33,17 +26,6 @@ const User = () => {
 		getUser();
 	}, [dispatch, params.login]);
 
-	const {
-		name,
-		avatar_url,
-		login,
-		bio,
-		location,
-		company,
-		blog,
-		followers,
-		following,
-	} = user;
 
 	if (loading) return <p>Loading...</p>;
 
@@ -56,55 +38,10 @@ const User = () => {
 			bgColor='#f8f8f8'
 			h='100%'
 		>
-			{/* <Flex px='10' pt={20} bgColor='#f8f8f8' h='100vh'> */}
 			<GridItem>
-				<VStack align='start' maxW='18vw' spacing='8'>
-					<Image
-						src={avatar_url}
-						alt='Dan Abramov'
-						boxSize='200px'
-						borderRadius='md'
-					/>
-					<VStack align='start' spacing='-1'>
-						<Text fontWeight='900' fontSize='4xl'>
-							{name}
-						</Text>
-						<Heading
-							size='lg'
-							color='gray.400'
-							fontWeight='500'
-						>{`@${login}`}</Heading>
-					</VStack>
-					<Text color='gray.600' fontWeight='medium'>
-						{bio}
-					</Text>
-					<Button bgColor='black' color='white' w='full' h='70px'>
-						Visit Profile
-					</Button>
-					<VStack color='gray.400' align='start'>
-						<HStack>
-							<FaUserFriends />
-							<Text>
-								Followers: {followers} / Following: {following}
-							</Text>
-						</HStack>
-						<HStack>
-							<FaBuilding />
-							<Text>{company}</Text>
-						</HStack>
-						<HStack>
-							<FaMapMarker />
-							<Text>{location}</Text>
-						</HStack>
-						<HStack>
-							<FaLink />
-							<Text>{blog}</Text>
-						</HStack>
-					</VStack>
-				</VStack>
+				<UserInfo user={user}/>
 			</GridItem>
 			<GridItem>
-				{/* <Box pl={20}> */}
 				<Heading>Projects</Heading>
 				<Grid gridTemplateColumns='repeat(2, 1fr)' gap={10} my={10}>
 					{repos.map((repo) => {
@@ -115,9 +52,7 @@ const User = () => {
 						);
 					})}
 				</Grid>
-				{/* </Box> */}
 			</GridItem>
-			{/* </Flex> */}
 		</Grid>
 	);
 };
