@@ -23,12 +23,18 @@ const RepoItem = ({ repo }) => {
 		created_at,
 	} = repo;
 
-	let language = '';
-	let langColor = '';
-	if (repo.language) {
-		language = repo.language.toLowerCase();
-		langColor = `rgba(${languageColors[language].color.join(',')}, 1)`;
-		console.log(langColor);
+	const language = repo.language;
+	let langColor = null;
+	if (language) {
+		try {
+			const lowLanguage = repo.language.toLowerCase();
+
+			langColor = `rgba(${languageColors[lowLanguage].color.join(
+				','
+			)}, 1)`;
+		} catch (error) {
+			console.log(error.message);
+		}
 	}
 
 	const date = new Date(created_at).toLocaleString('default', {
@@ -94,7 +100,7 @@ const RepoItem = ({ repo }) => {
 						px='4'
 						py='1'
 						color='white'
-						bgColor={langColor}
+						bgColor={langColor ? langColor : 'gray.500'}
 					>
 						{language}
 					</Badge>
