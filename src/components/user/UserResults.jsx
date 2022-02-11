@@ -15,8 +15,8 @@ const UserResults = () => {
 			>
 				{users.map((user) => {
 					return (
-						<GridItem maxW={'400px'}>
-							<UserItem key={user.id} user={user} />
+						<GridItem key={user.id} maxW={'400px'}>
+							<UserItem user={user} />
 						</GridItem>
 					);
 				})}

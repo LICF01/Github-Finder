@@ -6,7 +6,6 @@ import { getUserData } from '../context/GithubActions';
 
 import UserInfo from '../components/user/UserInfo';
 import RepoItem from '../components/user/RepoCard';
-import SearchUser from '../components/user/SearchUser';
 import SearchRepo from '../components/SearchRepo';
 
 import PuffLoader from 'react-spinners/PuffLoader';
@@ -34,7 +33,7 @@ const User = () => {
 	if (loading) {
 		return (
 			<Flex justifyContent='center' align='center' h='80vh'>
-				<PuffLoader size={80}/>
+				<PuffLoader size={80} />
 			</Flex>
 		);
 	}
@@ -55,21 +54,21 @@ const User = () => {
 				<Flex>
 					<Heading>Projects</Heading>
 					<Spacer />
-					<SearchRepo repos={repos} getRepo={getRepo} />
+					<SearchRepo repos={repos} getRepo={getRepo} w='xl' />
 				</Flex>
 				<Grid gridTemplateColumns='repeat(2, 1fr)' gap={10} my={10}>
 					{repo.length === 0
 						? repos.map((repo) => {
 								return (
-									<GridItem>
-										<RepoItem key={repo.id} repo={repo} />
+									<GridItem key={repo.id}>
+										<RepoItem repo={repo} />
 									</GridItem>
 								);
 						  })
 						: repo.map((repo) => {
 								return (
-									<GridItem>
-										<RepoItem key={repo.id} repo={repo} />
+									<GridItem key={repo.id}>
+										<RepoItem repo={repo} />
 									</GridItem>
 								);
 						  })}

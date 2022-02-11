@@ -1,9 +1,6 @@
-import { useContext, useReducer, useState } from 'react';
-
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { searchUsers } from '../../context/GithubActions';
-
 import GithubContext from '../../context/GithubContext';
 
 import {
@@ -17,7 +14,7 @@ import { RiSearchLine } from 'react-icons/ri';
 
 const SearchUser = () => {
 	const [inputText, setInputText] = useState('');
-	const { users, dispatch } = useContext(GithubContext);
+	const { dispatch } = useContext(GithubContext);
 	let navigate = useNavigate();
 
 	const handleChange = (e) => {
@@ -54,7 +51,10 @@ const SearchUser = () => {
 						focusBorderColor='gray.300'
 						border='none'
 						_placeholder={{ color: 'gray.600' }}
-						_focus={{ color: 'gray.900' }}
+						_focus={{
+							color: 'gray.600',
+							borderBottom: '1px solid  #A0AEC0',
+						}}
 					/>
 				</InputGroup>
 			</FormControl>

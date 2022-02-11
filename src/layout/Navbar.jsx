@@ -1,4 +1,4 @@
-import { Flex, Box, Icon, Grid, GridItem } from '@chakra-ui/react';
+import { Icon, Grid, GridItem } from '@chakra-ui/react';
 
 import Logo from '../components/Logo';
 import SearchUser from '../components/user/SearchUser';

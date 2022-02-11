@@ -1,10 +1,4 @@
-import { useContext, useEffect, useState, useRef } from 'react';
-
-import { useNavigate } from 'react-router-dom';
-
-import { searchUsers } from '../context/GithubActions';
-
-import GithubContext from '../context/GithubContext';
+import { useState } from 'react';
 
 import {
 	FormControl,
@@ -30,7 +24,7 @@ const SearchRepo = ({ repos, getRepo }) => {
 
 		getRepo(repo);
 
-		setInputText('')
+		setInputText('');
 	};
 
 	return (
@@ -42,16 +36,18 @@ const SearchRepo = ({ repos, getRepo }) => {
 						children={<RiSearchLine size='22' />}
 					/>
 					<Input
-						placeholder='Search...'
+						placeholder='Search a project'
 						id='search'
 						type='text'
 						value={inputText}
 						onChange={handleChange}
 						variant='flushed'
-						focusBorderColor='gray.300'
 						border='none'
 						_placeholder={{ color: 'gray.600' }}
-						_focus={{ color: 'gray.900' }}
+						_focus={{
+							color: 'gray.600',
+							borderBottom: '1px solid  #A0AEC0',
+						}}
 					/>
 				</InputGroup>
 			</FormControl>
