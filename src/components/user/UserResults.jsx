@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import GithubContext from '../../context/GithubContext';
 import UserItem from './UserCard';
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, Flex } from '@chakra-ui/react';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 const UserResults = () => {
 	const { users, loading } = useContext(GithubContext);
@@ -23,9 +24,9 @@ const UserResults = () => {
 		);
 	} else {
 		return (
-			<div>
-				<p>loading...</p>
-			</div>
+			<Flex justifyContent='center' align='center' h='80vh'>
+				<PuffLoader size={80} />
+			</Flex>
 		);
 	}
 };

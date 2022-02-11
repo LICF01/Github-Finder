@@ -9,9 +9,11 @@ import RepoItem from '../components/user/RepoCard';
 import SearchUser from '../components/user/SearchUser';
 import SearchRepo from '../components/SearchRepo';
 
+import PuffLoader from 'react-spinners/PuffLoader';
+
 const User = () => {
 	const { user, repos, loading, dispatch } = useContext(GithubContext);
-	const [ repo, setRepo ] = useState([]);
+	const [repo, setRepo] = useState([]);
 	let params = useParams();
 
 	useEffect(() => {
@@ -29,7 +31,13 @@ const User = () => {
 		setRepo(repo);
 	};
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) {
+		return (
+			<Flex justifyContent='center' align='center' h='80vh'>
+				<PuffLoader size={80}/>
+			</Flex>
+		);
+	}
 
 	return (
 		<Grid
@@ -64,8 +72,7 @@ const User = () => {
 										<RepoItem key={repo.id} repo={repo} />
 									</GridItem>
 								);
-						  })
-					}
+						  })}
 				</Grid>
 			</GridItem>
 		</Grid>
