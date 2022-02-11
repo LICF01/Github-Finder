@@ -2,22 +2,20 @@ import { useContext, useReducer, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { searchUsers } from '../context/GithubActions';
+import { searchUsers } from '../../context/GithubActions';
 
-import GithubContext from '../context/GithubContext';
+import GithubContext from '../../context/GithubContext';
 
 import {
 	FormControl,
 	Input,
 	InputGroup,
 	InputLeftElement,
-	Icon,
-	Flex,
 } from '@chakra-ui/react';
 
 import { RiSearchLine } from 'react-icons/ri';
 
-const SearchInput = () => {
+const SearchUser = () => {
 	const [inputText, setInputText] = useState('');
 	const { users, dispatch } = useContext(GithubContext);
 	let navigate = useNavigate();
@@ -64,4 +62,4 @@ const SearchInput = () => {
 	);
 };
 
-export default SearchInput;
+export default SearchUser;

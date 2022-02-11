@@ -1,7 +1,7 @@
 import { Flex, Box, Icon, Grid, GridItem } from '@chakra-ui/react';
 
 import Logo from '../components/Logo';
-import SearchInput from '../components/SearchInput';
+import SearchUser from '../components/user/SearchUser';
 
 const Navbar = () => {
 	return (
@@ -10,7 +10,7 @@ const Navbar = () => {
 				<Icon as={Logo} />
 			</GridItem>
 			<GridItem>
-				<SearchInput />
+				<SearchUser/>
 			</GridItem>
 			<GridItem justifySelf='end'>
 				<p>About</p>

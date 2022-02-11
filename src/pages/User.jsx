@@ -1,18 +1,17 @@
-import { useEffect, useContext } from 'react';
-import {
-	Heading,
-	Grid,
-	GridItem,
-} from '@chakra-ui/react';
+import { useEffect, useContext, useState } from 'react';
+import { Heading, Grid, GridItem, Flex, Spacer } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import GithubContext from '../context/GithubContext';
 import { getUserData } from '../context/GithubActions';
 
-import UserInfo from '../components/user/UserInfo'
+import UserInfo from '../components/user/UserInfo';
 import RepoItem from '../components/user/RepoCard';
+import SearchUser from '../components/user/SearchUser';
+import SearchRepo from '../components/SearchRepo';
 
 const User = () => {
 	const { user, repos, loading, dispatch } = useContext(GithubContext);
+	const [ repo, setRepo ] = useState([]);
 	let params = useParams();
 
 	useEffect(() => {
@@ -26,6 +25,9 @@ const User = () => {
 		getUser();
 	}, [dispatch, params.login]);
 
+	const getRepo = (repo) => {
+		setRepo(repo);
+	};
 
 	if (loading) return <p>Loading...</p>;
 
@@ -39,18 +41,31 @@ const User = () => {
 			h='100%'
 		>
 			<GridItem>
-				<UserInfo user={user}/>
+				<UserInfo user={user} />
 			</GridItem>
 			<GridItem>
-				<Heading>Projects</Heading>
+				<Flex>
+					<Heading>Projects</Heading>
+					<Spacer />
+					<SearchRepo repos={repos} getRepo={getRepo} />
+				</Flex>
 				<Grid gridTemplateColumns='repeat(2, 1fr)' gap={10} my={10}>
-					{repos.map((repo) => {
-						return (
-							<GridItem>
-								<RepoItem key={repo.id} repo={repo} />
-							</GridItem>
-						);
-					})}
+					{repo.length === 0
+						? repos.map((repo) => {
+								return (
+									<GridItem>
+										<RepoItem key={repo.id} repo={repo} />
+									</GridItem>
+								);
+						  })
+						: repo.map((repo) => {
+								return (
+									<GridItem>
+										<RepoItem key={repo.id} repo={repo} />
+									</GridItem>
+								);
+						  })
+					}
 				</Grid>
 			</GridItem>
 		</Grid>
