@@ -1,6 +1,6 @@
 import { Icon, Heading, HStack } from '@chakra-ui/react';
-
 import { FaGithub } from 'react-icons/fa';
+
 const Logo = () => {
 	return (
 		<HStack>
