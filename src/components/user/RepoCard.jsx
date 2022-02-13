@@ -7,6 +7,7 @@ import {
 	Text,
 	Icon,
 	Link,
+	useColorModeValue
 } from '@chakra-ui/react';
 
 import { FiStar, FiClock } from 'react-icons/fi';
@@ -45,6 +46,10 @@ const RepoItem = ({ repo }) => {
 		year: 'numeric',
 	});
 
+	const bgColor = useColorModeValue('white', 'gray.900')
+	const shadow = useColorModeValue('rgba(0,0,0,0.17)', 'rgba(113, 128, 150, 0.17)')
+	const textColor3 = useColorModeValue('gray.400', 'gray.600')
+
 	return (
 		<Link
 			href={`https://github.com/${full_name}`}
@@ -54,14 +59,14 @@ const RepoItem = ({ repo }) => {
 			<Flex
 				flexDir='column'
 				justifyContent='space-between'
-				bgColor='white'
+				bgColor={bgColor}
 				borderRadius='lg'
 				overflow='hidden'
 				h='100%'
 				p='6'
 				transition='all .2s'
 				_hover={{
-					boxShadow: '4px 15px 16px -2px rgba(0,0,0,0.17)',
+					boxShadow: `4px 15px 16px -2px ${shadow}`,
 					transform: 'translateY(-10px)',
 				}}
 				sx={{ cursor: 'pointer' }}
@@ -69,7 +74,7 @@ const RepoItem = ({ repo }) => {
 				<Flex
 					justifyContent='end'
 					alignItems='center'
-					color='gray.400'
+					color={textColor3}
 					mb='4'
 				>
 					<Text borderRadius='full'>

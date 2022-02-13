@@ -22,7 +22,7 @@ const User = () => {
 	const [repo, setRepo] = useState([]);
 	let params = useParams();
 
-	const bgColor = useColorModeValue('#f8f8f8', 'gray.900');
+	const bgColor = useColorModeValue('#f8f8f8', 'gray.800');
 
 	useEffect(() => {
 		dispatch({ type: 'SET_LOADING' });

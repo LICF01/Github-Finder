@@ -6,6 +6,7 @@ import {
 	Button,
 	HStack,
 	Link,
+	useColorModeValue
 } from '@chakra-ui/react';
 
 import { FaBuilding, FaMapMarker, FaLink, FaUserFriends } from 'react-icons/fa';
@@ -23,7 +24,9 @@ const UserInfo = ({ user }) => {
 		following,
 	} = user;
 
-	console.log(user);
+	const bioTextColor = useColorModeValue('gray.600', 'gray.400')
+
+	const textColor3 = useColorModeValue('gray.400', 'gray.600')
 
 	return (
 		<VStack align='start' maxW='18vw' spacing='8'>
@@ -39,11 +42,11 @@ const UserInfo = ({ user }) => {
 				</Text>
 				<Heading
 					size='lg'
-					color='gray.400'
+					color={textColor3}
 					fontWeight='500'
 				>{`@${login}`}</Heading>
 			</VStack>
-			<Text color='gray.600' fontWeight='medium'>
+			<Text color={bioTextColor} fontWeight='medium'>
 				{bio}
 			</Text>
 			<Link href={`https://github.com/${login}`} isExternal w='full'>
@@ -67,7 +70,7 @@ const UserInfo = ({ user }) => {
 					Visit Profile
 				</Button>
 			</Link>
-			<VStack color='gray.400' align='start'>
+			<VStack color={textColor3} align='start'>
 				<HStack>
 					<FaUserFriends />
 					<Text>

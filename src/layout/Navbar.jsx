@@ -14,8 +14,10 @@ import SearchUser from '../components/user/SearchUser';
 const Navbar = () => {
 	const { colorMode, toggleColorMode } = useColorMode();
 
+	const bgColor = useColorModeValue('white', 'gray.900')
+
 	return (
-		<Grid templateColumns='1fr 2.5fr 1fr' alignItems='center' px={10}>
+		<Grid templateColumns='1fr 2.5fr 1fr' alignItems='center' px={10} backgroundColor={bgColor}>
 			<GridItem>
 				<Icon as={Logo} />
 			</GridItem>
