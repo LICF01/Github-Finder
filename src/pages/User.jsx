@@ -23,6 +23,8 @@ const User = () => {
 	let params = useParams();
 
 	const bgColor = useColorModeValue('#f8f8f8', 'gray.800');
+	const spinner = useColorModeValue('black', 'white');
+
 
 	useEffect(() => {
 		dispatch({ type: 'SET_LOADING' });
@@ -42,7 +44,7 @@ const User = () => {
 	if (loading) {
 		return (
 			<Flex justifyContent='center' align='center' h='80vh'>
-				<PuffLoader size={80} />
+				<PuffLoader size={80} color={spinner} />
 			</Flex>
 		);
 	}
