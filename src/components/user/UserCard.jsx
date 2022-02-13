@@ -1,22 +1,26 @@
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 const UserItem = ({ user }) => {
 	console.log(user);
 	const { login, avatar_url } = user;
+
+	const bgColor = useColorModeValue('white', 'gray.900')
+	const shadow = useColorModeValue('rgba(0,0,0,0.17)', 'rgba(113, 128, 150, 0.17)')
+
 	return (
 		<Link to={`/user/${login}`}>
-			<Box
-				display={{ base: 'flex' }}
+			<Flex
 				alignItems='center'
-				border='1px'
-				borderColor='gray.300'
-				p='3'
-				m='2'
+				bgColor={bgColor}
 				borderRadius='md'
-				transition='all .5s'
+				overflow='hidden'
+				h='100%'
+				p='6'
+				transition='all .2s'
 				_hover={{
-					bg: 'gray.100',
+					boxShadow: `4px 15px 16px -2px ${shadow}`,
+					transform: 'translateY(-10px)',
 				}}
 				sx={{ cursor: 'pointer' }}
 			>
@@ -37,7 +41,7 @@ const UserItem = ({ user }) => {
 						Visit Profile
 					</Text>
 				</Box>
-			</Box>
+			</Flex>
 		</Link>
 	);
 };

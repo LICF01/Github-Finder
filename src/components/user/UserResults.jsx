@@ -1,21 +1,26 @@
 import { useContext } from 'react';
 import GithubContext from '../../context/GithubContext';
 import UserItem from './UserCard';
-import { Grid, GridItem, Flex } from '@chakra-ui/react';
+import { Grid, GridItem, Flex, useColorModeValue} from '@chakra-ui/react';
 import PuffLoader from 'react-spinners/PuffLoader';
 
 const UserResults = () => {
 	const { users, loading } = useContext(GithubContext);
 
+	const bgColor = useColorModeValue('#f8f8f8', 'gray.800');
+
 	if (!loading) {
 		return (
 			<Grid
 				gridTemplateColumns='repeat(auto-fill, 350px)'
+				gap={10}
+				my={10}
 				justifyContent='center'
+				backgroundColor={bgColor}
 			>
 				{users.map((user) => {
 					return (
-						<GridItem key={user.id} maxW={'400px'}>
+						<GridItem key={user.id} maxW={'400px'} >
 							<UserItem user={user} />
 						</GridItem>
 					);
