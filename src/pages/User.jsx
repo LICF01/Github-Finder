@@ -1,5 +1,12 @@
 import { useEffect, useContext, useState } from 'react';
-import { Heading, Grid, GridItem, Flex, Spacer } from '@chakra-ui/react';
+import {
+	Heading,
+	Grid,
+	GridItem,
+	Flex,
+	Spacer,
+	useColorModeValue,
+} from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import GithubContext from '../context/GithubContext';
 import { getUserData } from '../context/GithubActions';
@@ -14,6 +21,8 @@ const User = () => {
 	const { user, repos, loading, dispatch } = useContext(GithubContext);
 	const [repo, setRepo] = useState([]);
 	let params = useParams();
+
+	const bgColor = useColorModeValue('#f8f8f8', 'gray.900');
 
 	useEffect(() => {
 		dispatch({ type: 'SET_LOADING' });
@@ -44,7 +53,7 @@ const User = () => {
 			alignItems='start'
 			px={10}
 			pt={20}
-			bgColor='#f8f8f8'
+			bgColor={bgColor}
 			h='100%'
 		>
 			<GridItem>

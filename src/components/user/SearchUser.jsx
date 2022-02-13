@@ -48,13 +48,6 @@ const SearchUser = () => {
 						value={inputText}
 						onChange={handleChange}
 						variant='flushed'
-						focusBorderColor='gray.300'
-						border='none'
-						_placeholder={{ color: 'gray.600' }}
-						_focus={{
-							color: 'gray.600',
-							borderBottom: '1px solid  #A0AEC0',
-						}}
 					/>
 				</InputGroup>
 			</FormControl>
