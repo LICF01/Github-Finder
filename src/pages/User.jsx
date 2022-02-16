@@ -58,7 +58,7 @@ const User = () => {
       bgColor={bgColor}
       h="100%"
     >
-      <GridItem>
+      <GridItem m="0 auto">
         <UserInfo user={user} />
       </GridItem>
       <GridItem>

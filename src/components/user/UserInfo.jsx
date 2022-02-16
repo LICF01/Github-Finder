@@ -31,7 +31,7 @@ const UserInfo = ({ user }) => {
   return (
     <Flex
       flexDirection={{ base: "column" }}
-      alignItems={{ base: "center", md: "start" }}
+      alignItems={{ base: "center", lg: "start" }}
       align="start"
       maxW={{ base: "80vw", lg: "18vw" }}
       textAlign={{ base: "center", lg: "start" }}
@@ -59,7 +59,7 @@ const UserInfo = ({ user }) => {
         <Button
           bgColor="black"
           color="white"
-          w="full"
+          w={{ base: "100%", sm: "sm", md: "md", lg: "full" }}
           h="70px"
           _hover={{ bgColor: "#2b2b2b" }}
           _active={{

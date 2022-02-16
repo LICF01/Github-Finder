@@ -19,7 +19,7 @@ const UserResults = () => {
           xl: "repeat(auto-fill, 25vw)",
         }}
         gap={10}
-        my={10}
+        pt={10}
         justifyContent="center"
         alignItems={"center"}
         backgroundColor={bgColor}

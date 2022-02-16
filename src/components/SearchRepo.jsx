@@ -30,11 +30,15 @@ const SearchRepo = ({ repos, getRepo }) => {
   };
 
   return (
-    <Box alignSelf={{ base: "start", md: "end" }} w="100%">
+    <Box alignSelf={{ base: "start", md: "end" }}>
       <form onSubmit={handleSubmit}>
         <FormControl w={{ base: "100%" }} my={{ base: "20px" }}>
           <Flex justifyContent={{ base: "start", md: "end" }}>
-            <InputGroup color="gray.400" size="lg" w={"30%"}>
+            <InputGroup
+              color="gray.400"
+              size="lg"
+              w={{ base: "100%", m: "30%" }}
+            >
               <InputLeftElement
                 pointerEvents="none"
                 children={<RiSearchLine size="22" />}
