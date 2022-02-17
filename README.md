@@ -14,14 +14,10 @@
 A React app to search, get and display profiles info from the GitHub API
 The design is heavely inspired in the work of [Alyssa X](https://dribbble.com/alyssax) named [Open Source Design Platform](https://dribbble.com/shots/6188320-Open-Source-Design-Platform)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ### Built With
 
 * [React.js](https://reactjs.org/)
 * [ChakraUI](https://chakra-ui.com/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Getting Started with Create React App
 
