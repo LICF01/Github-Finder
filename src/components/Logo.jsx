@@ -6,7 +6,7 @@ const Logo = () => {
     <HStack>
       <Icon as={FaGithub} w={{ base: 10, lg: 10 }} h={10} mr={2} />
       <Heading fontSize={30} display={{ base: "none", lg: "block" }}>
-        GithubFinder
+        Github Finder
       </Heading>
     </HStack>
   );

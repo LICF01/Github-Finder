@@ -42,15 +42,17 @@ const Navbar = (props) => {
       >
         <HStack spacing={{ base: 5, lg: 50 }}>
           {colorMode === "light" ? (
-            <Button onClick={toggleColorMode}>
+            <Button onClick={toggleColorMode} variant="ghost">
               {colorMode === "light" ? "Dark" : "Light"}
             </Button>
           ) : (
-            <Button onClick={toggleColorMode}>
+            <Button onClick={toggleColorMode} variant="ghost">
               {colorMode === "light" ? "Dark" : "Light"}
             </Button>
           )}
-          <p>About</p>
+          <Button variant={"ghost"}>
+            <Link to={"/about"}>About</Link>
+          </Button>
         </HStack>
       </GridItem>
     </Grid>
