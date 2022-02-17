@@ -17,7 +17,7 @@ The design is heavely inspired in the work of [Alyssa X](https://dribbble.com/al
 ### Built With
 
 * [React.js](https://reactjs.org/)
-* [ChakraUI](https://chakra-ui.com/)
+* [Chakra UI](https://chakra-ui.com/)
 
 ## Getting Started with Create React App
 
