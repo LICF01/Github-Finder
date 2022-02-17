@@ -44,7 +44,7 @@ const Navbar = (props) => {
         order={{ base: 1, md: 2 }}
         colSpan={{ base: 2, md: 1 }}
       >
-        <HStack spacing={{ base: 5, lg: 50 }}>
+        <HStack spacing={{ base: 5, lg: 3 }}>
           {colorMode === "light" ? (
             <Button onClick={toggleColorMode} variant="ghost">
               {colorMode === "light" ? "Dark" : "Light"}
