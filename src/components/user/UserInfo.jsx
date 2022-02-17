@@ -42,7 +42,7 @@ const UserInfo = ({ user }) => {
         boxSize="200px"
         borderRadius="md"
       />
-      <VStack spacing="-1" spacing={1} my={2}>
+      <Flex flexDirection={"column"} my={4}>
         <Text fontWeight="900" fontSize="4xl">
           {name}
         </Text>
@@ -51,11 +51,11 @@ const UserInfo = ({ user }) => {
           color={textColor3}
           fontWeight="500"
         >{`@${login}`}</Text>
-      </VStack>
+      </Flex>
       <Text color={bioTextColor} fontWeight="medium" my={2}>
         {bio}
       </Text>
-      <Link href={`https://github.com/${login}`} isExternal w="full" my={2}>
+      <Link href={`https://github.com/${login}`} isExternal w="full" my={4}>
         <Button
           bgColor="black"
           color="white"
@@ -84,16 +84,34 @@ const UserInfo = ({ user }) => {
           </Text>
         </HStack>
         <HStack>
-          <FaBuilding />
-          <Text>{company}</Text>
+          {company ? (
+            <>
+              <FaBuilding />
+              <Text> {company} </Text>
+            </>
+          ) : (
+            ""
+          )}
         </HStack>
         <HStack>
-          <FaMapMarker />
-          <Text>{location}</Text>
+          {location ? (
+            <>
+              <FaMapMarker />
+              <Text>{location}</Text>
+            </>
+          ) : (
+            ""
+          )}
         </HStack>
         <HStack>
-          <FaLink />
-          <Text>{blog}</Text>
+          {blog ? (
+            <>
+              <FaLink />
+              <Text>{blog ? blog : ""}</Text>
+            </>
+          ) : (
+            ""
+          )}
         </HStack>
       </VStack>
     </Flex>
