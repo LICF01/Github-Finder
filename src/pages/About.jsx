@@ -3,8 +3,6 @@ import { Link } from "@chakra-ui/react";
 
 import { Heading, Flex, useColorModeValue, Icon, Text } from "@chakra-ui/react";
 
-import SearchUser from "../components/user/SearchUser";
-
 import { FaGithub } from "react-icons/fa";
 
 function About() {
