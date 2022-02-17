@@ -2,13 +2,13 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url] -->
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<!-- [![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 
 A React app to search, get and display profiles info from the GitHub API
@@ -17,8 +17,6 @@ The design is heavely inspired in the work of [Alyssa X](https://dribbble.com/al
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [React.js](https://reactjs.org/)
 * [ChakraUI](https://chakra-ui.com/)
