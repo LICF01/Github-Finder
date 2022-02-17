@@ -31,8 +31,12 @@ const SearchRepo = ({ repos, getRepo }) => {
 
   return (
     <Box alignSelf={{ base: "start", md: "end" }}>
-      <form onSubmit={handleSubmit}>
-        <FormControl w={{ base: "100%" }} my={{ base: "20px" }}>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <FormControl
+          w={{ base: "100%" }}
+          mb={{ base: "20px" }}
+          mt={{ base: "20px", lg: 0 }}
+        >
           <Flex justifyContent={{ base: "start", md: "end" }}>
             <InputGroup
               color="gray.400"

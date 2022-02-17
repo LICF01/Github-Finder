@@ -2,7 +2,6 @@ import { Box, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const UserItem = ({ user }) => {
-  console.log(user);
   const { login, avatar_url } = user;
 
   const bgColor = useColorModeValue("white", "gray.900");

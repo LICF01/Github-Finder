@@ -28,21 +28,21 @@ const SearchUser = () => {
 
     dispatch({ type: "GET_USERS", payload: users });
 
-    navigate(`/user/search`);
-
     setInputText("");
+
+    navigate(`/user/search`);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormControl w={{ sm: "100%" }} my={{ base: "20px" }}>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <FormControl w={{ sm: "100%" }}>
         <InputGroup color="gray.400" size="lg">
           <InputLeftElement
             pointerEvents="none"
             children={<RiSearchLine size="22" />}
           />
           <Input
-            placeholder="Search..."
+            placeholder="Search profile"
             id="search"
             type="text"
             value={inputText}

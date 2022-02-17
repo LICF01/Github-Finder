@@ -29,7 +29,6 @@ const User = () => {
     dispatch({ type: "SET_LOADING" });
     const getUser = async () => {
       const userData = await getUserData(params.login);
-      console.log(userData);
       dispatch({ type: "GET_USER", payload: userData });
     };
 
@@ -56,7 +55,6 @@ const User = () => {
       px={10}
       pt={20}
       bgColor={bgColor}
-      h="100%"
     >
       <GridItem m="0 auto">
         <UserInfo user={user} />
@@ -64,8 +62,8 @@ const User = () => {
       <GridItem>
         <Flex
           flexDirection={{ base: "column", md: "row" }}
-          alignItems={{ base: "center" }}
-          mt={10}
+          alignItems={{ base: "center", md: "start" }}
+          mt={{ base: 10, md: 0 }}
         >
           <Heading>Projects</Heading>
           <Spacer />
