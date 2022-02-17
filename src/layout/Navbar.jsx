@@ -7,11 +7,14 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Link, useLocation } from "react-router-dom";
 
 import Logo from "../components/Logo";
 import SearchUser from "../components/user/SearchUser";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const location = useLocation();
+
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bgColor = useColorModeValue("white", "gray.900");
@@ -21,14 +24,16 @@ const Navbar = () => {
       templateColumns={{ base: "1fr 1fr 1fr", md: "1fr 2.5fr 1fr" }}
       alignItems="center"
       px={{ base: 5, lg: 10 }}
-      pt={{ base: 3, lg: 0 }}
+      py={{ base: "20px" }}
       backgroundColor={bgColor}
     >
       <GridItem colSpan={1}>
-        <Icon as={Logo} />
+        <Link to={"/"}>
+          <Icon as={Logo} />
+        </Link>
       </GridItem>
       <GridItem order={{ base: 2, md: 1 }} colSpan={{ base: 3, md: 1 }}>
-        <SearchUser />
+        {location.pathname !== "/" ? <SearchUser /> : ""}
       </GridItem>
       <GridItem
         justifySelf="end"
