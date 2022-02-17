@@ -18,6 +18,7 @@ function About() {
       bgColor={bgColor}
       h={"100%"}
       pb={"200px"}
+      textAlign="center"
     >
       <Icon as={FaGithub} w={"200px"} h={"200px"} mr={2} />
       <Heading m="10" as={"h1"}>

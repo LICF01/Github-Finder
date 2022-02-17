@@ -30,7 +30,10 @@ const SearchRepo = ({ repos, getRepo }) => {
   };
 
   return (
-    <Box alignSelf={{ base: "start", md: "end" }}>
+    <Box
+      alignSelf={{ base: "start", md: "end" }}
+      w={{ base: "100%", md: "30%" }}
+    >
       <form onSubmit={handleSubmit} autoComplete="off">
         <FormControl
           w={{ base: "100%" }}

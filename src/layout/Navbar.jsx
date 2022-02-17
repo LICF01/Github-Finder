@@ -32,7 +32,11 @@ const Navbar = (props) => {
           <Icon as={Logo} />
         </Link>
       </GridItem>
-      <GridItem order={{ base: 2, md: 1 }} colSpan={{ base: 3, md: 1 }}>
+      <GridItem
+        order={{ base: 2, md: 1 }}
+        colSpan={{ base: 3, md: 1 }}
+        mt={{ base: 3, md: 0 }}
+      >
         {location.pathname !== "/" ? <SearchUser /> : ""}
       </GridItem>
       <GridItem
