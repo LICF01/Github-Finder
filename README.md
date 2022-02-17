@@ -6,7 +6,7 @@
 [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+# Github Profile Finder
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -23,7 +23,7 @@ The design is heavely inspired in the work of [Alyssa X](https://dribbble.com/al
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
