@@ -12,10 +12,10 @@ import About from "./pages/About";
 function App() {
   return (
     <GithubProvider>
-      <Box h={"100%"}>
-        <Navbar />
+      <Navbar />
+      <Box h={"100%"} pt={"100px"}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/user/:login" element={<User />} />
           <Route path="/user/search" element={<UserResults />} />
           <Route path="/about" element={<About />} />
