@@ -18,6 +18,7 @@ The design is heavely inspired in the work of [Alyssa X](https://dribbble.com/al
 
 * [React.js](https://reactjs.org/)
 * [Chakra UI](https://chakra-ui.com/)
+* [Framer Motion](https://www.framer.com/motion/)
 
 ## Getting Started with Create React App
 
