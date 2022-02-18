@@ -26,6 +26,9 @@ const Navbar = (props) => {
       px={{ base: 5, lg: 10 }}
       py={{ base: "20px" }}
       backgroundColor={bgColor}
+      position="fixed"
+      w="100%"
+      zIndex={"999"}
     >
       <GridItem colSpan={1}>
         <Link to={"/"}>
@@ -54,9 +57,9 @@ const Navbar = (props) => {
               {colorMode === "light" ? "Dark" : "Light"}
             </Button>
           )}
-          <Button variant={"ghost"}>
-            <Link to={"/about"}>About</Link>
-          </Button>
+          <Link to={"/about"}>
+            <Button variant={"ghost"}>About</Button>
+          </Link>
         </HStack>
       </GridItem>
     </Grid>
