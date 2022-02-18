@@ -16,10 +16,11 @@ function Home() {
       align="center"
       bgColor={bgColor}
       h={"100%"}
-      pb={"200px"}
     >
       <Icon as={FaGithub} w={"200px"} h={"200px"} mr={2} />
-      <Heading m="12">Type below to find an user</Heading>
+      <Heading m="12" textAlign={"center"}>
+        Type below to find an user
+      </Heading>
       <SearchUser />
     </Flex>
   );
