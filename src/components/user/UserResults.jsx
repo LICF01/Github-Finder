@@ -15,7 +15,7 @@ const gridItemVariant = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { delay: 1 },
+    transition: { delay: 1, delayChildren: 0.3, staggerChildren: 0.2 },
   },
   exit: {
     opacity: 0,
@@ -52,7 +52,7 @@ const UserResults = () => {
           xl: "repeat(auto-fill, 25vw)",
         }}
         gap={10}
-        pt={10}
+        pt={{ base: 20, md: 10 }}
         justifyContent="center"
         alignItems={"center"}
         backgroundColor={bgColor}
