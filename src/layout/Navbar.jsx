@@ -40,7 +40,11 @@ const Navbar = (props) => {
         colSpan={{ base: 3, md: 1 }}
         mt={{ base: 3, md: 0 }}
       >
-        {location.pathname !== "/" ? <SearchUser /> : ""}
+        {location.pathname !== "/" && location.pathname !== "/about" ? (
+          <SearchUser />
+        ) : (
+          ""
+        )}
       </GridItem>
       <GridItem
         justifySelf="end"

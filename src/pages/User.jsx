@@ -8,14 +8,39 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import GithubContext from "../context/GithubContext";
 import { getUserData } from "../context/GithubActions";
-
 import UserInfo from "../components/user/UserInfo";
 import RepoItem from "../components/user/RepoCard";
 import SearchRepo from "../components/SearchRepo";
 
 import PuffLoader from "react-spinners/PuffLoader";
+
+//Framer Motion components
+const MotionGrid = motion(Grid);
+const MotionGridItem = motion(GridItem);
+
+// Framer Motion Variants
+const gridItemVariant = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const pageVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 0.5, duration: 1.5 },
+  },
+  exit: {
+    opacity: 0,
+    transition: { ease: "easeInOut" },
+  },
+};
 
 const User = () => {
   const { user, repos, loading, dispatch } = useContext(GithubContext);
@@ -48,13 +73,17 @@ const User = () => {
   }
 
   return (
-    <Grid
+    <MotionGrid
       templateColumns={{ lg: "1fr 3.4fr" }}
       alignItems="start"
       justifyContent={"center"}
       px={10}
       pt={20}
       bgColor={bgColor}
+      variants={pageVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
     >
       <GridItem m="0 auto">
         <UserInfo user={user} />
@@ -69,32 +98,43 @@ const User = () => {
           <Spacer />
           <SearchRepo repos={repos} getRepo={getRepo} w="xl" />
         </Flex>
-        <Grid
+        <MotionGrid
           gridTemplateColumns={{
             base: "repeat(auto-fill, 80vw)",
             md: "repeat(2, 1fr)",
           }}
           gap={10}
           my={10}
+          layout
         >
-          {repo.length === 0
-            ? repos.map((repo) => {
-                return (
-                  <GridItem key={repo.id}>
-                    <RepoItem repo={repo} />
-                  </GridItem>
-                );
-              })
-            : repo.map((repo) => {
-                return (
-                  <GridItem key={repo.id}>
-                    <RepoItem repo={repo} />
-                  </GridItem>
-                );
-              })}
-        </Grid>
+          <AnimatePresence>
+            {repo.length === 0
+              ? repos.map((repo) => {
+                  return (
+                    <MotionGridItem
+                      key={repo.id}
+                      variants={gridItemVariant}
+                      layout
+                    >
+                      <RepoItem repo={repo} />
+                    </MotionGridItem>
+                  );
+                })
+              : repo.map((repo) => {
+                  return (
+                    <MotionGridItem
+                      key={repo.id}
+                      variants={gridItemVariant}
+                      layout
+                    >
+                      <RepoItem repo={repo} />
+                    </MotionGridItem>
+                  );
+                })}
+          </AnimatePresence>
+        </MotionGrid>
       </GridItem>
-    </Grid>
+    </MotionGrid>
   );
 };
 
