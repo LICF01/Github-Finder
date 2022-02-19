@@ -12,7 +12,7 @@ import {
 
 import { RiSearchLine } from "react-icons/ri";
 
-const SearchUser = () => {
+const SearchUser = ({ closeCover }) => {
   const [inputText, setInputText] = useState("");
   const { dispatch } = useContext(GithubContext);
   let navigate = useNavigate();
@@ -29,6 +29,10 @@ const SearchUser = () => {
     dispatch({ type: "GET_USERS", payload: users });
 
     setInputText("");
+
+    if (closeCover) {
+      closeCover();
+    }
 
     navigate(`/user/search`);
   };
