@@ -33,6 +33,7 @@ function About() {
       h={"100%"}
       textAlign="center"
       px={10}
+	pb={20}
       variants={pageVariants}
       initial="hidden"
       animate="visible"
