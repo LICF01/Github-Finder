@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import GithubContext from "../../context/GithubContext";
 import UserItem from "./UserCard";
+import NotFound from "../../pages/NotFound";
 import { Grid, GridItem, Flex, useColorModeValue } from "@chakra-ui/react";
 
 import { motion, AnimatePresence } from "framer-motion";

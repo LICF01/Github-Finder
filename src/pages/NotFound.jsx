@@ -1,12 +1,10 @@
 import React from "react";
+import { Link } from "@chakra-ui/react";
+import { Heading, Flex, useColorModeValue, Icon, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
-import { Heading, Flex, useColorModeValue, Icon } from "@chakra-ui/react";
-
-import SearchUser from "../components/user/SearchUser";
-
 import { FaGithub } from "react-icons/fa";
 
+// Framer Motion Variants
 const pageVariants = {
   hidden: {
     opacity: 0,
@@ -23,7 +21,7 @@ const pageVariants = {
 
 const MotionFlex = motion(Flex);
 
-function Home() {
+function NotFound() {
   const bgColor = useColorModeValue("#f8f8f8", "gray.800");
 
   return (
@@ -33,16 +31,24 @@ function Home() {
       align="center"
       bgColor={bgColor}
       h={"100%"}
+      textAlign="center"
+      px={10}
       pb={20}
       variants={pageVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
     >
-      <Icon as={FaGithub} w={"200px"} h={"200px"} m={12} />
-      <SearchUser />
+      <Icon as={FaGithub} w={"200px"} h={"200px"} mr={2} />
+      <Heading m="10" as={"h1"}>
+        404 Not found
+      </Heading>
+      <Text color="gray.500" fontSize={"xl"} mt={2}>
+        Sorry for the inconvinience, the page you're trying to reach doesn't
+        exist!
+      </Text>
     </MotionFlex>
   );
 }
 
-export default Home;
+export default NotFound;

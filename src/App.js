@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import UserResults from "./components/user/UserResults";
 import User from "./pages/User";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
             <Route path="/user/:login" element={<User />} />
             <Route path="/user/search" element={<UserResults />} />
             <Route path="/about" element={<About />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </Box>
