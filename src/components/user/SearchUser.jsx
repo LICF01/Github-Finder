@@ -33,15 +33,15 @@ const SearchUser = ({ closeCover }) => {
 
     setInputText("");
 
-    if (closeCover) {
+    if (users.length === 0) toggleModal();
+    if (users.length === 1) {
+      navigate(`/user/${users[0].login}`);
       closeCover();
     }
-
-    console.log(users);
-
-    if (users.length === 0) toggleModal();
-    if (users.length === 1) navigate(`/user/${users[0].login}`);
-    if (users.length > 1) navigate(`/user/search`);
+    if (users.length > 1) {
+      navigate(`/user/search`);
+      closeCover();
+    }
   };
 
   const toggleModal = () => {
@@ -51,7 +51,7 @@ const SearchUser = ({ closeCover }) => {
   return (
     <>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <FormControl w={{ sm: "100%" }}>
+        <FormControl w={{ base: "80vw" }} maxW="500px">
           <InputGroup color="gray.400" size="lg">
             <InputLeftElement
               pointerEvents="none"
