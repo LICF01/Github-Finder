@@ -16,7 +16,7 @@ function App() {
   return (
     <GithubProvider>
       <Navbar />
-      <Box h={"100%"} pt={"70px"}>
+      <Box h={"100%"} pt={"50px"}>
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
             <Route exact path="/" element={<Home />} />

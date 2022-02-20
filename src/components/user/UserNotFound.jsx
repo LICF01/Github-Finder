@@ -6,6 +6,7 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
+  Text,
   ModalFooter,
   useDisclosure,
   Button,
@@ -15,11 +16,16 @@ export default function UserNotFound({ onClose, isOpen }) {
   return (
     <Modal onClose={onClose} isOpen={isOpen} isCentered>
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader textAlign={"center"}>User Not Found!</ModalHeader>
+      <ModalContent textAlign={"center"}>
+        <ModalHeader>
+          <Text fontSize={"2xl"}>User Not Found!</Text>
+        </ModalHeader>
         <ModalCloseButton />
         <ModalBody color="gray.500" mb={10}>
-          Sorry, the user has not be found, have you spell it correctly?
+          <Text fontSize={"lg"}>
+            Sorry, the user has not be found,
+            <br /> have you spell it correctly?
+          </Text>
         </ModalBody>
       </ModalContent>
     </Modal>

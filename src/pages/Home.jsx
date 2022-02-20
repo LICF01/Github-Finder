@@ -33,7 +33,7 @@ function Home() {
       align="center"
       bgColor={bgColor}
       h={"100%"}
-      pb={20}
+      pb={"200px"}
       variants={pageVariants}
       initial="hidden"
       animate="visible"
